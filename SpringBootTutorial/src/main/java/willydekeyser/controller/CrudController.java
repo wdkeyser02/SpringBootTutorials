@@ -18,7 +18,7 @@ import willydekeyser.service.UserService;
 @RestController
 @RequestMapping("/crud")
 @RequiredArgsConstructor
-public class Crudcontroller {
+public class CrudController {
 
 	private final UserService userService;
 	
