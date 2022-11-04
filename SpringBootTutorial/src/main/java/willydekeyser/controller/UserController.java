@@ -75,7 +75,7 @@ public class UserController {
 	
 	@GetMapping("getresponseentitytimeout")
 	// http://localhost:8080/getmapping/getresponseentitytimeout
-	public ResponseEntity<String> getResponseEntiyTimeout() {
+	public ResponseEntity<String> getResponseEntiyTimeogut() {
 		return new ResponseEntity<>("Time out", HttpStatus.REQUEST_TIMEOUT);
 	}
 	
