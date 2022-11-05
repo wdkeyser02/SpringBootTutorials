@@ -16,6 +16,10 @@ public class UserService {
 		return users;
 	}
 
+	public User getUserById(Integer id) {
+		return users.stream().filter(user -> user.id().equals(id)).findFirst().orElse(null);
+	}
+	
 	public List<User> createUser(User user) {
 		List<User> usersTemp = new ArrayList<>(users);
 		usersTemp.add(user);
