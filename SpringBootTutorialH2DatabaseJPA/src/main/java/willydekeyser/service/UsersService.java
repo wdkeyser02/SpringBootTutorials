@@ -5,13 +5,11 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import willydekeyser.model.Users;
 import willydekeyser.repository.UsersRepository;
 
 @Service
 @RequiredArgsConstructor
-@Slf4j
 public class UsersService {
 	
 	private final UsersRepository usersRepository;
@@ -29,7 +27,6 @@ public class UsersService {
 	}
 	
 	public List<Users> createAllUser(List<Users> users) {
-		log.info("Users {}", users);
 		return usersRepository.saveAll(users);
 	}
 	
