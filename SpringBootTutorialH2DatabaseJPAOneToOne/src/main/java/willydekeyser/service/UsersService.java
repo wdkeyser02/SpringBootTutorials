@@ -1,10 +1,13 @@
 package willydekeyser.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
+import willydekeyser.dto.UsersAddressDto;
+import willydekeyser.mapping.UsersMapping;
 import willydekeyser.model.Users;
 import willydekeyser.repository.UsersRepository;
 
@@ -13,13 +16,16 @@ import willydekeyser.repository.UsersRepository;
 public class UsersService {
 
 	private final UsersRepository usersRepository;
+	private final UsersMapping usersMapping;
 
-	public List<Users> getUsers() {
-		return usersRepository.findAll();
+	public List<UsersAddressDto> getUsers() {
+		List<UsersAddressDto> usersAddressDto = new ArrayList<>();
+		usersRepository.findAll().forEach(user -> usersAddressDto.add(usersMapping.mapUsersToUsersAddressDto(user)));
+		return usersAddressDto;
 	}
 	
-	public Users getUserById(Integer id) {
-		return usersRepository.findById(id).orElse(null);
+	public UsersAddressDto getUserById(Integer id) {
+		return usersMapping.mapUsersToUsersAddressDto(usersRepository.findById(id).orElse(null));
 	}
 	
 	public Users createUser(Users user) {

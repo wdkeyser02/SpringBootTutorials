@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
+import willydekeyser.dto.UsersAddressDto;
 import willydekeyser.model.Users;
 import willydekeyser.service.UsersService;
 
@@ -22,12 +23,12 @@ public class UsersController {
 	private final UsersService usersService;
 	
 	@GetMapping("/user")
-	public List<Users> getUsers() {
+	public List<UsersAddressDto> getUsers() {
 		return usersService.getUsers();
 	}
 	
 	@GetMapping("/user/{id}")
-	public Users getUserById(@PathVariable Integer id) {
+	public UsersAddressDto getUserById(@PathVariable Integer id) {
 		return usersService.getUserById(id);
 	}
 	
