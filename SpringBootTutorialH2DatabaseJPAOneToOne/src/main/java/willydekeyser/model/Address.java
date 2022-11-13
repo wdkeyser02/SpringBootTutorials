@@ -1,6 +1,7 @@
 package willydekeyser.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -18,6 +19,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "address")
+@JsonIdentityInfo(
+		  generator = ObjectIdGenerators.PropertyGenerator.class, 
+		  property = "id")
 public class Address {
 
 	@Id
@@ -29,7 +33,6 @@ public class Address {
 	private String city;
 	
 	@OneToOne(mappedBy = "address", cascade = CascadeType.ALL)
-	@JsonBackReference
 	private Users users;
 	
 	public Address(String street, String number, String zipcode, String city) {

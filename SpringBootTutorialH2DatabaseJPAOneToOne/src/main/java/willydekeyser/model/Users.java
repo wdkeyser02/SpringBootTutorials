@@ -1,6 +1,7 @@
 package willydekeyser.model;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -18,6 +19,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "users")
+@JsonIdentityInfo(
+		  generator = ObjectIdGenerators.PropertyGenerator.class, 
+		  property = "id")
 public class Users {
 
 	@Id
@@ -27,7 +31,6 @@ public class Users {
 	private String lastname;
 	
 	@OneToOne(cascade = CascadeType.ALL)
-	@JsonManagedReference
 	private Address address;
 	
 	public Users(String firstname, String lastname, Address address) {
