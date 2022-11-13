@@ -1,5 +1,7 @@
 package willydekeyser.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -25,6 +27,7 @@ public class Users {
 	private String lastname;
 	
 	@OneToOne(cascade = CascadeType.ALL)
+	@JsonManagedReference
 	private Address address;
 	
 	public Users(String firstname, String lastname, Address address) {
