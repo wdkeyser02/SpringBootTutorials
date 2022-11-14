@@ -33,5 +33,8 @@ public class Users {
 		this.address = address;
 	}
 	
+	public String getFullname() {
+		return firstname + " " + lastname;
+	}
 	
 }
