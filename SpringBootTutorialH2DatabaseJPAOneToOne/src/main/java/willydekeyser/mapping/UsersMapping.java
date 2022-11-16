@@ -11,13 +11,13 @@ import willydekeyser.model.Users;
 public class UsersMapping {
 
 	public UsersDto mapUsersToUsersDto(Users users) {
-		return new UsersDto(users.getId(), users.getFirstname(), users.getLastname());
+		return new UsersDto(users.getId(), users.getFirstname(), users.getLastname(), users.getEmail(), users.getPhone());
 	}
 	
 	public UsersAddressDto mapUsersToUsersAddressDto(Users users) {
 		return new UsersAddressDto(users.getId(), users.getFullname(), 
 				new AddressDto(users.getAddress().getId(), users.getAddress().getStreet(), 
-						users.getAddress().getNumber(), users.getAddress().getZipcode(), users.getAddress().getCity()));
+						users.getAddress().getNumber(), users.getAddress().getZipcode(), users.getAddress().getCity()), users.getEmail(), users.getPhone());
 	}
 	
 }

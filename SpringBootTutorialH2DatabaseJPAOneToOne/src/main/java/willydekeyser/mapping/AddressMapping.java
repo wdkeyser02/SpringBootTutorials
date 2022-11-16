@@ -16,7 +16,7 @@ public class AddressMapping {
 	
 	public AddressUsersDto mapAddressToAddressUsersDto(Address address) {
 		return new AddressUsersDto(address.getId(), address.getStreet(), address.getNumber(), address.getZipcode(), address.getCity(), 
-				new UsersDto(address.getUsers().getId(), address.getUsers().getFirstname(), address.getUsers().getLastname()));
+				new UsersDto(address.getUsers().getId(), address.getUsers().getFirstname(), address.getUsers().getLastname(), address.getUsers().getEmail(), address.getUsers().getPhone()));
 	}
 
 }
